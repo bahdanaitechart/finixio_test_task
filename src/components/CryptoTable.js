@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { AgGridColumn, AgGridReact } from 'ag-grid-react'
 import { getCoinsPrices } from '../services/crypto'
 import 'ag-grid-community/dist/styles/ag-grid.css'
@@ -61,6 +62,13 @@ function CryptoTable({ currency }) {
             </AgGridReact>
         </div>
     )
+}
+
+CryptoTable.propTypes = {
+    currency: PropTypes.shape({
+        name: PropTypes.string,
+        symbol: PropTypes.string,
+    }),
 }
 
 export default CryptoTable
